@@ -1,14 +1,14 @@
 package tn.esprit.entities;
 
-import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.GrantedAuthority;
 
-public enum RoleName implements GrantedAuthority {
+public enum RoleName {
 Company , Employee  ,;
-
+/*
 @Override
 public String getAuthority() {
 	// TODO Auto-generated method stub
 	return "Role_"+name();
 }
-
+*/
 }

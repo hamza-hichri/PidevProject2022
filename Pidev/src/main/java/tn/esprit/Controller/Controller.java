@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,7 +30,6 @@ public User addEmploee(@RequestBody User E) {
 	return serviceIMPL.addEmploee(E);}
 
 @PostMapping("/AddReclamation")
-@ResponseBody
 public Reclamation addReclamation(@RequestBody Reclamation r) {
       return serviceIMPL.addReclamation(r); 	
 }
@@ -38,14 +38,13 @@ public Reclamation addReclamation(@RequestBody Reclamation r) {
 public Reclamation updateReclamation(@RequestBody Reclamation r) {
 	return serviceIMPL.updateReclamation(r); 
 }
-@DeleteMapping
-@ResponseBody
-public void DeleteReclamationById(@RequestBody Reclamation r) {
-	serviceIMPL.deleteReclamationById(r);
+@DeleteMapping("DeleteRec/{idr}")
+public void DeleteReclamationById(@PathVariable("idr") long idr) {
+	serviceIMPL.deleteReclamationById(idr);
 }
-@GetMapping("/ShowAll")
+@GetMapping("/ShowAllRecl")
 @ResponseBody
-public List<Reclamation> ShowAllReclamation(@RequestBody Reclamation r) {
+public List<Reclamation> ShowAllReclamation() {
 	return serviceIMPL.ShowAllReclamation(); 
 }
 @PostMapping("/AddFeedback")
@@ -58,14 +57,14 @@ public Feedback addFeedback(@RequestBody Feedback f) {
 public Feedback updateFeedback(@RequestBody Feedback f) {
 	return serviceIMPL.upadteFeedback(f) ; 
 }
-@DeleteMapping
+@DeleteMapping("Delete")
 @ResponseBody
 public void DeleteFeedbackbyId(@RequestBody Feedback f) {
 	serviceIMPL.deleteFeedbackById(f); 
 }
 @GetMapping("/ShowAll")
 @ResponseBody
-public List<Feedback> ShowAllFeedback(@RequestBody Feedback f) {
+public List<Feedback> ShowAllFeedback() {
 	return serviceIMPL.ShowAllFeedback(); 
 }
 }

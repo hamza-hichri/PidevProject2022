@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import tn.esprit.entities.Reclamation;
 @Repository
-public interface ReclamationRepository extends JpaRepository<Reclamation, Integer>{
+public interface ReclamationRepository extends JpaRepository<Reclamation, Long>{
 
 }

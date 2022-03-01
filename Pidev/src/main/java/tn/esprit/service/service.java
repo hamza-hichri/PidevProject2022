@@ -14,7 +14,7 @@ public interface service {
 	////////////Reclamation Functions ////////////////////
 	public Reclamation addReclamation(Reclamation r);
 	public Reclamation updateReclamation(Reclamation r);
-	public void deleteReclamationById(Reclamation r);
+	public void deleteReclamationById(long idr);
 	public List<Reclamation> ShowAllReclamation();
 	
     ////////////Feedbacks Functions ////////////////////

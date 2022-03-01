@@ -54,8 +54,8 @@ FeedbackRepository feedbackRepository;
 
 
 	@Override
-	public void deleteReclamationById(Reclamation r) {
-		reclamationRepository.deleteById((int) r.getIdreclamation());
+	public void deleteReclamationById(long idr) {
+		reclamationRepository.deleteById(idr);
 		
 	}
 
