@@ -13,6 +13,7 @@ import lombok.Data;
 public class Feedback {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id_feedback;
 	private int Rate ;
     private String Comment ;
     @ManyToOne

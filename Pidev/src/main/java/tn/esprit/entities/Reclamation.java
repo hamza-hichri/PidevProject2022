@@ -1,10 +1,14 @@
 package tn.esprit.entities;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Data;
 
@@ -13,10 +17,12 @@ import lombok.Data;
 public class Reclamation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long Id_reclamation;
+	private long Idreclamation;
     private String Reclamation ;
     private String Username ;
     private int Usermaxcount;
+    @Temporal(TemporalType.DATE)
+    private Date creating_date;
     @ManyToOne
     private User user ;
     
