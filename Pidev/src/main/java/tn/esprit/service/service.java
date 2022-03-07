@@ -13,8 +13,8 @@ public interface service {
 	///////////////////TravelCrud///////////////////
 	public Travel AddTravel(Travel t);
 	public Travel UpdateTravel(Travel t);
-	public void DeleteTravelById(Travel t);
-	public List<Travel> DisplayAll(Travel t);
+	public void DeleteTravelById(int tid);
+	public List<Travel> DisplayAll();
 	public List<User> AlgoMatch(User u);
 }
 
