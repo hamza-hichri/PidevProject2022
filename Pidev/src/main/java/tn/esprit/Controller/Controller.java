@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import tn.esprit.entities.Feedback;
 import tn.esprit.entities.Reclamation;
-import tn.esprit.entities.Role;
 import tn.esprit.entities.User;
 import tn.esprit.service.serviceIMPL;
 
@@ -29,9 +29,10 @@ public User addEmploee(@RequestBody User E) {
 	// TODO Auto-generated method stub
 	return serviceIMPL.addEmploee(E);}
 
-@PostMapping("/AddReclamation")
-public Reclamation addReclamation(@RequestBody Reclamation r) {
-      return serviceIMPL.addReclamation(r); 	
+@PostMapping("/AddReclamation/{{user2_Id}}")
+public Reclamation addReclamation(@RequestBody Reclamation r, @RequestBody User u1, @PathVariable(name = "user2_Id")Integer user2_Id) {
+       
+	return serviceIMPL.addReclamation(r,u1, user2_Id); 	
 }
 @PutMapping("/UpdateReclamation")
 @ResponseBody
