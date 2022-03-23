@@ -1,31 +1,32 @@
-package tn.esprit.entities;
+package tn.esprit.Entities;
 
+import java.util.Date;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-
+import lombok.NoArgsConstructor;
+@Builder
 @Data
-@Entity
+@Entity(name = "shipped_order")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Invitation {
-	@Id
-	@GeneratedValue(strategy =GenerationType.AUTO  )
-	private long Id_Invitation;
-	private String Content;
-	private String Email;
-	private String Invitaiondestination ;
-	@Enumerated(EnumType.STRING)
-	private State State;
-	@ManyToMany(cascade = CascadeType.ALL)
-	private Set<User>  user ;
-	
+	  @Id
+	    @GeneratedValue(strategy= GenerationType.SEQUENCE)
+	    private Long orderId;
+	    private String firstName;
+	    private String lastName;
+	    private String email;
+	    private String cost;
+	    private String itemId;
+	    private String itemName;
+	    private Date shipDate;
+	    private boolean status;
+	    private boolean emailSent;
 }
