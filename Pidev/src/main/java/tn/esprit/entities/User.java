@@ -1,17 +1,19 @@
 package tn.esprit.entities;
 
-
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Data;
 
@@ -21,12 +23,12 @@ public class User {
 @Id
 @GeneratedValue(strategy =GenerationType.AUTO  )
 	private long id_user;
-	private String Name;
-	private String Email;
-	private String UserName ;
-	private String Password ;
-	private Boolean active;
-	private long PhoneNumber;
+	private String name;
+	private String email;
+	private String username ;
+	private String password ;
+
+	private long phoneNumber;
 	
 	
 	@OneToMany(cascade = CascadeType.ALL , mappedBy = "user")
@@ -39,7 +41,7 @@ public class User {
 	private Set<Reclamation> reclamations ;
 	@OneToMany(cascade = CascadeType.ALL , mappedBy = "user")
 	private Set<Publication> publications ;
-	@ManyToMany(cascade = CascadeType.ALL,mappedBy = "user") 
+	@ManyToMany(cascade = CascadeType.PERSIST, fetch= FetchType.EAGER) 
 	private Set<Role> roles ;
 	@ManyToOne
 	private Field field;
