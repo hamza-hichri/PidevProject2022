@@ -20,7 +20,7 @@ public class Field {
 	private long Id_Field;
 	private String Fieldtype ;
 	@ManyToOne
-	private Role company;
+	private Role role;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "field")
 	private Set<User> users;
 }

@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import tn.esprit.entities.User;
 @Repository
-public interface EmployeeRepository  extends JpaRepository<User, Long>{
+public interface UserRepository  extends JpaRepository<User, Long>{
 
 }
