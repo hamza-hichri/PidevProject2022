@@ -34,7 +34,7 @@ public class User {
 	private Profission Profission;
 	@ManyToMany(cascade = CascadeType.ALL , mappedBy = "user")
 	private Set<Invitation>invitations ;
-	@OneToMany(cascade = CascadeType.ALL , mappedBy = "user")
+	@OneToMany(cascade = CascadeType.ALL , mappedBy = "reclamant")
 	private Set<Reclamation> reclamations ;
 	@OneToMany(cascade = CascadeType.ALL , mappedBy = "user")
 	private Set<Publication> publications ;

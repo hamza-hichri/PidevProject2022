@@ -1,6 +1,9 @@
 package tn.esprit.service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,7 @@ import tn.esprit.entities.Reclamation;
 
 @Service
 public class serviceIMPL implements service {
+	boolean val= false;
 	@Autowired
 	UserRepository userRepository;
 	@Autowired
@@ -36,11 +40,10 @@ public class serviceIMPL implements service {
 	@Override
 	public Reclamation addReclamation(Reclamation r, User u1 , Integer user2_id) {
 		User u2 = userRepository.getById((long)user2_id);
-		if(Userexist(u1, u2)) {
 
 			return reclamationRepository.save(r);
 	}
-		return null;}
+
 
 	@Override
 	public Reclamation updateReclamation(Reclamation r) {
@@ -85,20 +88,38 @@ public class serviceIMPL implements service {
 		return feedbackRepository.findAll();
 	}
 
-@Override
-	public Boolean Userexist(User u1, User u2) {
-	boolean ok1=false;
-	boolean ok2=false;
-	List<User> usertravel = userRepository.findAll();
-    for (User user : usertravel) {
-	   if(u1.getId_user()==user.getId_user()) {
-	ok1=true; 
-	   }
-		if (u2.getId_user()==user.getId_user()) {
-		ok2=true; 
+	@Override
+	public Map<User, List<User>> rectable() {
+		
+		List<User> destinations = new ArrayList();
+		List<Reclamation> reclamation = reclamationRepository.findAll();
+		for (Reclamation reclamation2 : reclamation) {
+			User recl= reclamation2.getReclamant();
+			destinations.add(reclamation2.getReclamationdestination());
 		}
-	   }
-    return(ok1&&ok2);
-}
+		
+		return null;
+	}
+	
+	
+	@Override
+	 public boolean  validRec(Long id_reclament , Long id_R_des) {
+		 User u= userRepository.findById(id_reclament).orElse(null); 
+		 List<Reclamation> r=reclamationRepository.findByReclamant(u);
+		 
+		 r.forEach(v->{
+			 if (v.getReclamationdestination().getId_user()==id_R_des) 
+				   val= true ; 
+					 });
+		 if(val==true) {
+			 return false;
+			 
+		 }else {
+			 return true ; 
+		 }
+		  
+	 }
+
+  
 
 }

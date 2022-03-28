@@ -25,9 +25,11 @@ public class Reclamation implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long Idreclamation;
     private String Reclamation ;
-    private String reclamationdestination;
+//    private String reclamationdestination; 
     @Temporal(TemporalType.DATE)
     private Date creating_date;
     @ManyToOne
-    private User user ;
+    private User reclamant ;
+    @ManyToOne
+    private User reclamationdestination ; 
     }

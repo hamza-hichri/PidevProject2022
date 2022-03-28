@@ -28,12 +28,12 @@ serviceIMPL serviceIMPL ;
 public User addEmploee(@RequestBody User E) {
 	// TODO Auto-generated method stub
 	return serviceIMPL.addEmploee(E);}
-
+/*
 @PostMapping("/AddReclamation/{{user2_Id}}")
 public Reclamation addReclamation(@RequestBody Reclamation r, @RequestBody User u1, @PathVariable(name = "user2_Id")Integer user2_Id) {
        
 	return serviceIMPL.addReclamation(r,u1, user2_Id); 	
-}
+}*/
 @PutMapping("/UpdateReclamation")
 @ResponseBody
 public Reclamation updateReclamation(@RequestBody Reclamation r) {
@@ -42,6 +42,10 @@ public Reclamation updateReclamation(@RequestBody Reclamation r) {
 @DeleteMapping("DeleteRec/{idr}")
 public void DeleteReclamationById(@PathVariable("idr") long idr) {
 	serviceIMPL.deleteReclamationById(idr);
+}
+@GetMapping("valdRec/{id_reclament}/{id_R_des}/")
+public boolean validRec(@PathVariable("id_reclament") long id_reclament,@PathVariable("id_R_des") long id_R_des) {
+	return serviceIMPL.validRec(id_reclament, id_R_des);
 }
 @GetMapping("/ShowAllRecl")
 @ResponseBody

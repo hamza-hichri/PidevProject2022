@@ -1,6 +1,7 @@
 package tn.esprit.service;
 
 import java.util.List;
+import java.util.Map;
 
 import tn.esprit.entities.User;
 import tn.esprit.entities.Feedback;
@@ -22,5 +23,7 @@ public interface service {
 	public List<Feedback> ShowAllFeedback();              
 	                                                   
 	/////////////////Reclamation//////////////////////
-	public Boolean Userexist(User u1 , User u2);
+	public Map<User, List<User>> rectable();
+
+	boolean validRec(Long id_reclament, Long id_R_des);
 }
