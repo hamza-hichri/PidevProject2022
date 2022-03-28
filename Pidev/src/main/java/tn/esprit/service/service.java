@@ -11,7 +11,7 @@ public interface service {
 	public User addEmploee(User E);
 	
 	////////////Reclamation Functions ////////////////////
-	public Reclamation addReclamation(Reclamation r, User u1 , Integer  user2_id);
+	public Reclamation addReclamation(Reclamation r, long id1, long id2);
 	public Reclamation updateReclamation(Reclamation r);     
 	public void deleteReclamationById(long idr);               
 	public List<Reclamation> ShowAllReclamation();               
@@ -26,4 +26,5 @@ public interface service {
 	public Map<User, List<User>> rectable();
 
 	boolean validRec(Long id_reclament, Long id_R_des);
+
 }

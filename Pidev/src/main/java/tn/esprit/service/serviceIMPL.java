@@ -38,10 +38,19 @@ public class serviceIMPL implements service {
 	}
 
 	@Override
-	public Reclamation addReclamation(Reclamation r, User u1 , Integer user2_id) {
-		User u2 = userRepository.getById((long)user2_id);
-
-			return reclamationRepository.save(r);
+	public Reclamation addReclamation(Reclamation r, long id1 , long id2) {
+		boolean v = validRec(id1, id2);
+		if (v==true) {
+			r.setReclamant(userRepository.getById(id1));
+			r.setReclamationdestination(userRepository.getById(id2));
+		return reclamationRepository.save(r);
+		}
+		else {
+			String msg = "mrigel bro";
+			System.out.println(msg);
+			return null ;
+		}
+			
 	}
 
 
@@ -113,7 +122,6 @@ public class serviceIMPL implements service {
 					 });
 		 if(val==true) {
 			 return false;
-			 
 		 }else {
 			 return true ; 
 		 }
