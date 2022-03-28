@@ -22,12 +22,12 @@ public class BatchLauncher {
 	/*toDo4*/
 	private Job job;
 
-//	/*2. Lancer le job lancher */
-//	public BatchStatus run() throws JobParametersInvalidException, JobExecutionAlreadyRunningException,
-//			JobRestartException, JobInstanceAlreadyCompleteException {
-//		JobParameters parameters = new JobParametersBuilder().addLong("time", System.currentTimeMillis())
-//				.toJobParameters();
-//		JobExecution jobExecution = jobLauncher.run(job, parameters);
-//		return jobExecution.getStatus();
-//	}
+	/*2. Lancer le job lancher */
+public BatchStatus run() throws JobParametersInvalidException, JobExecutionAlreadyRunningException,
+			JobRestartException, JobInstanceAlreadyCompleteException {
+	JobParameters parameters = new JobParametersBuilder().addLong("time", System.currentTimeMillis())
+			.toJobParameters();
+	JobExecution jobExecution = jobLauncher.run(job, parameters);
+	return jobExecution.getStatus();
+}
 }

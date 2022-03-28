@@ -16,9 +16,9 @@ public class Scheduler {
     /*1. Lancer le batch (traitement de lots de données)
      *  grace au batch runner*/
    
-//    /*toDo6*/
-//    public void perform() throws Exception {
-//        log.info("Batch programmé pour tourner toutes les 5 minutes");
-//        batchLauncher.run();
-//    }
+    /*toDo6*/
+    public void perform() throws Exception {
+        log.info("Batch programmé pour tourner toutes les 5 minutes");
+        batchLauncher.run();
+    }
 }

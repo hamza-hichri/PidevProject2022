@@ -35,24 +35,13 @@ public class TestController {
     return "Public Content.";
   }
 
-  @GetMapping("/user")
-  @PreAuthorize("hasRole('WOMEN') or hasRole('EXPERT') or hasRole('FORMER')")
-  public String userAccess() {
-    return "User Content.";
-  }
-  @GetMapping("/retrieve-all-users")
-  @PreAuthorize("hasRole('WOMEN')")
-	public Set<User> getUsers(){
-		return us.retrieveAllUsers();
-	}
-
-  @GetMapping("/mod")
-  @PreAuthorize("hasRole('WOMEN')")
+  @GetMapping("/employee")
+  @PreAuthorize("hasRole('ROLE_Employee')")
   public String moderatorAccess() {
-    return "Moderator Board.";
+    return "employee Board.";
   }
 
-  @GetMapping("/admin")
+  @GetMapping("/company")
   @PreAuthorize("hasRole('ROLE_Company')")
   public String adminAccess() {
     return "Admin Board.";

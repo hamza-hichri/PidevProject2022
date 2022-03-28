@@ -23,8 +23,8 @@ public class Invitation {
 	private String Content;
 	private String Email;
 	private String Invitaiondestination ;
-	@Enumerated(EnumType.STRING)
-	private State State;
+	private Boolean State;
+
 	@ManyToMany(cascade = CascadeType.ALL)
 	private Set<User>  user ;
 	

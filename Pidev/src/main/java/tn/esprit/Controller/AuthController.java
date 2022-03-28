@@ -42,19 +42,12 @@ import tn.esprit.spring.security.jwt.JwtUtils;
 public class AuthController {
   @Autowired
   AuthenticationManager authenticationManager;
-
   @Autowired
   ServiceUser serviceUser;
   @Autowired
   UserRepository userRepository;
-  
-
   @Autowired
   RoleRepository roleRepository;
-  
-
- 
-
   @Autowired
   JwtUtils jwtUtils;
 
@@ -72,8 +65,6 @@ public class AuthController {
     List<String> roles = userDetails.getAuthorities().stream()
         .map(item -> item.getAuthority())
         .collect(Collectors.toList());
-    
-    
     return ResponseEntity.ok(new JwtResponse(jwt, 
                          userDetails.getId(), 
                          userDetails.getUsername(), 
@@ -108,28 +99,4 @@ public class AuthController {
 		}
 		return msg; 
 		}
-//  @PostMapping("/verifieAccount/{Vcode}")
-//  public ResponseEntity<?> verifieAccount( @Valid @RequestBody LoginRequest loginRequest ,@PathVariable("Vcode") String Vcode) throws MessagingException {
-//	 User u = userRepository.findByEmail(loginRequest.getEmail());
-//	 if(ServiceUser.VerifUser(u.getVcode(), Vcode)){
-//		 u.setEtat(true);
-//		 userRepository.save(u);
-//		 return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Your account have been verified  ");
-//	 }else{
-//		 return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Your should Reverifie your account  ");
-//	 }
-//	  
-//  }
-  
-//  @PostMapping("/Reverifie")
-//  public String Reverifie( @Valid @RequestBody LoginRequest loginRequest) throws MessagingException {
-//	 String  Vcode = EmailController.verificationCode();
-//	 User u = userRepository.findByEmail(loginRequest.getEmail());
-//	 u.setVcode(Vcode);
-//	 EmailController.send(u.getId(), Vcode);
-//	 userRepository.save(u);
-//	  return null ; 
-//	  
-//  }
-	  
 }
