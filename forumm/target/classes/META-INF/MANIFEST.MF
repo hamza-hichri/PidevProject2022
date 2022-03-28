@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: forumm
+Implementation-Version: 1.0
+Built-By: Lenouvo
+Implementation-Vendor-Id: tn.esprit
+Build-Jdk: 1.8.0_281
+Implementation-URL: https://spring.io/projects/spring-boot/forumm
+Created-By: Maven Integration for Eclipse
+
