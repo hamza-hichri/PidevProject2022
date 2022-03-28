@@ -2,17 +2,14 @@ package tn.esprit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import tn.esprit.Controller.UserController;
-import tn.esprit.entities.checkDTO;
-
-@SpringBootApplication
+@EnableAspectJAutoProxy
 @EnableWebMvc
-@ComponentScan({"tn.esprit.dto"})
-@ComponentScan(basePackageClasses = {UserController.class, checkDTO.class})
-
+@EnableScheduling
+@SpringBootApplication
 public class PidevApplication {
 
 	public static void main(String[] args) {

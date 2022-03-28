@@ -15,7 +15,8 @@ public class Reclamation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long Id_reclamation;
     private String Reclamation ;
-    private String reclamationdestination ;
+    private String Username ;
+    private int Usermaxcount;
     @ManyToOne
     private User user ;
     
